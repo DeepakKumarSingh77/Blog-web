@@ -1,0 +1,13 @@
+export const SIGN_UP="SIGN_UP";
+export const LOGIN="LOGIN";
+export const GETPOST="GETPOST";
+export const Logout="Logout";
+export const GETPOSTBYID="GETPOSTBYID";
+export const POSTCOMMENT="POSTCOMMENT";
+export const GETCOMMENT="GETCOMMENT";
+export const DELETECOMMENT="DELETECOMMENT";
+export const RECENTPOST="RECENTPOST";
+export const GETALLUSER="GETALLUSER";
+export const GETUSERBYID="GETUSERBYID";
+export const SAVEABOUT="SAVEABOUT";
+export const PROFILEIMAGE="PROFILEIMAGE";
