@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import Router from "./router/route.js";
 import bodyParser from "body-parser";
 dotenv.config();
-const PORT=process.env.PORT || 8000; 
+const PORT=process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json())

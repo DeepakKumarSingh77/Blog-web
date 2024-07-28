@@ -4,8 +4,9 @@ import User from "../model/user.js";
 export const createPost=async(req,res)=>{
     try {
         const { title,picture, description,categories,username } = req.body.comment;
-        const post=await new Post({title,picture,description,categories,username});
+        const post=await new Post({title,picture,description,categories,username,createdDate: new Date()});
         post.save();
+        console.log(post);
         res.status(200).json('post saved successfully');
     } catch (error) {
        res.status(404).json({msg:"Error while saving post in database"});

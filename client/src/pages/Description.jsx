@@ -131,17 +131,23 @@ const Description = () => {
     const shareUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(window.location.href)}`;
     window.open(shareUrl, "_blank");
   };
+  const reducestr = (str) => {
+    if (str) {
+      return str.substring(0, 10);
+    } else {
+      return ""; // or any default value you prefer
+    }};
   return (
     <Box>
     <Component>
       <Wrapper>
-           <Box>{liked?<FcLike style={{width:"18px",height:"18px",marginTop:"15px"}} onClick={()=>likehandle(post[0]._id)}/>:<FcLikePlaceholder style={{width:"18px",height:"18px",marginTop:"25px"}} onClick={()=>likehandle(post[0]._id)}/>}<Likedcnt>{cntlike}</Likedcnt></Box>
+           <Box>{liked?<FcLike style={{width:"18px",height:"18px",marginTop:"15px",cursor:"pointer"}} onClick={()=>likehandle(post[0]._id)}/>:<FcLikePlaceholder style={{width:"18px",height:"18px",marginTop:"25px"}} onClick={()=>likehandle(post[0]._id)}/>}<Likedcnt>{cntlike}</Likedcnt></Box>
            <br></br>
-           <a href="#section2" style={{textDecoration:'none'}}><FaRegComment style={{width:"18px",height:"18px",marginTop:"15px"}}/></a>
+           <a href="#section2" style={{textDecoration:'none',cursor:"pointer"}}><FaRegComment style={{width:"18px",height:"18px",marginTop:"15px"}}/></a>
            <br></br>
-           <FaTwitter style={{width:"18px",height:"18px",marginTop:"15px"}} onClick={handleTwitterShare}/>
+           <FaTwitter style={{width:"18px",height:"18px",marginTop:"15px",cursor:"pointer"}} onClick={handleTwitterShare}/>
            <br></br>
-           <CiLinkedin style={{width:"18px",height:"18px",marginTop:"15px"}} onClick={handleLinkedInShare}/>
+           <CiLinkedin style={{width:"18px",height:"18px",marginTop:"15px",cursor:"pointer"}} onClick={handleLinkedInShare}/>
       </Wrapper>
       <Describ>
         <Box style={{ display: "flex", height: "60px" }}>
@@ -153,7 +159,7 @@ const Description = () => {
           </Box>
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <Username>{post[0].username}</Username>
-            <Createdon>created on {post[0].createdDate.slice(0, 10)}</Createdon>
+            <Createdon>created on {reducestr(post[0].createdDate)}</Createdon>
           </Box>
         </Box>
         <Title>{post[0].title}</Title>
@@ -180,7 +186,7 @@ const Description = () => {
           </Box>
               <Typography style={{fontSize:"20px",fontWeight:"600"}}>{post[0].username}</Typography>
           </Box>
-          {follow?<Button onClick={()=>{followerHandle(Id.id)}}>unFollow</Button>:<Button onClick={()=>{followerHandle(Id.id)}}>Follow</Button>}
+          {follow?<Button style={{cursor:"pointer"}} onClick={()=>{followerHandle(Id.id)}}>unFollow</Button>:<Button onClick={()=>{followerHandle(Id.id)}}>Follow</Button>}
       </Wrapperfollow>
     </Component>
     <Box>
